@@ -3,7 +3,7 @@ This repository contains the UI Prototype of the Bauer Pressure Washing operatio
 
 v1.0 - Customers, Jobs, and Calendar views created. Customers and Jobs fill with hardcoded information.
 
-TODO
+## TODO
 * Add fragments for displaying customer details and job details
 * Populate calendar with jobs
 * Make search operational
