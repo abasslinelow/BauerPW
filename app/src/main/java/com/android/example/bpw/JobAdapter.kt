@@ -1,6 +1,5 @@
 package com.android.example.bpw
 
-import android.arch.lifecycle.ViewModel
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -8,10 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.android.example.bpw.com.android.example.bpw.Job
 import kotlinx.android.synthetic.main.job_card.view.*
 import org.threeten.bp.format.DateTimeFormatter
 
-
+// This class is exactly like CustomerAdapter, except it tracks jobs and creates a job card.
 class JobAdapter(private val jobs: ArrayList<Job>, private val context: Context) :
     RecyclerView.Adapter<JobViewHolder>() {
 
@@ -41,9 +41,5 @@ class JobViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickLis
 
     override fun onClick(v: View) {
         Log.d("RecyclerView", "CLICK!")
-    }
-
-    companion object {
-        private val JOB_KEY = "JOB"
     }
 }

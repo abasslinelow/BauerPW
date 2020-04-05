@@ -42,7 +42,7 @@
                 android:layout_height="0dp"
                 app:layout_constraintTop_toBottomOf="@+id/customer_search"
                 app:layout_constraintBottom_toTopOf="@+id/nav_view" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" android:id="@+id/customer_list"/>
+                app:layout_constraintEnd_toEndOf="parent" android:id="@+id/item_list"/>
 
         <CalendarView
                 android:id="@+id/job_calendar"
@@ -63,7 +63,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_weight="10"
-                app:menu="@menu/bottom_nav_menu"></android.support.design.widget.BottomNavigationView>
+                app:menu="@menu/bottom_nav_menu" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

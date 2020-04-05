@@ -15,57 +15,89 @@
             app:cardMaxElevation="5dp">
 
         <android.support.constraint.ConstraintLayout
+                android:id="@+id/job_card_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:id="@+id/job_card_layout"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                     android:id="@+id/job_date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:colorAccent="#FFFFFF"
+                    android:drawableTint="#FFFFFF"
+                    android:textColor="@android:color/black"
                     android:textSize="20sp"
-                    tools:text="Date"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/job_type"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Date" />
+
             <TextView
                     android:id="@+id/job_type"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:textSize="20sp"
-                    tools:text="Type"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/job_date"
-                    android:layout_marginStart="5dp"/>
+                    tools:text="Type" />
 
             <TextView
                     android:id="@+id/cust_fname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:textSize="20sp"
-                    tools:text="FirstName"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/cust_lname"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/job_date"/>
+                    app:layout_constraintEnd_toStartOf="@+id/cust_lname"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/job_date"
+                    tools:text="FirstName" />
+
             <TextView
                     android:id="@+id/cust_lname"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@android:color/black"
                     android:textSize="20sp"
-                    tools:text="LastName"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/job_type"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cust_fname"
-                    android:layout_marginStart="5dp"/>
+                    app:layout_constraintTop_toBottomOf="@+id/job_date"
+                    tools:text="LastName" />
+
+            <CheckBox
+                    android:id="@+id/completed_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#000000"
+                    android:text="@string/job_completed_text"
+                    android:textColor="@android:color/black"
+                    android:textColorLink="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/paid_checkbox"
+                    app:layout_constraintTop_toBottomOf="@+id/job_date" />
+
+            <CheckBox
+                    android:id="@+id/paid_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#000000"
+                    android:checked="false"
+                    android:text="@string/job_paid_text"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/job_type" />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>

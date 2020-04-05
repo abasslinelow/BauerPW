@@ -1,5 +1,6 @@
-package com.android.example.bpw
+package com.android.example.bpw.com.android.example.bpw
 
+import com.android.example.bpw.Customer
 import org.threeten.bp.Duration
 import org.threeten.bp.LocalDate
 import org.threeten.bp.LocalTime

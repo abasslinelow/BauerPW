@@ -1,3 +1,5 @@
+
+
 package com.android.example.bpw
 
 import android.databinding.DataBindingUtil
@@ -5,8 +7,8 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
+import com.android.example.bpw.com.android.example.bpw.Job
 import com.android.example.bpw.databinding.ActivityMainBinding
 import com.jakewharton.threetenabp.AndroidThreeTen
 import kotlinx.android.synthetic.main.activity_main.*
@@ -40,14 +42,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AndroidThreeTen.init(this);
+        AndroidThreeTen.init(this)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         val navView: BottomNavigationView = binding.navView
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
-
+        // Populate the Customers and Jobs with hardcoded customers and jobs.
+        // NOTE: This will populate from a database in the future.
         populateCustomers()
         populateJobs()
 
@@ -55,32 +58,35 @@ class MainActivity : AppCompatActivity() {
         onCustomers()
     }
 
+    // Functionality of the "Customers" pane.
     private fun onCustomers() {
         binding.heading.setText(R.string.title_customers)
 
-        customer_list.visibility = View.VISIBLE
+        item_list.visibility = View.VISIBLE
         job_calendar.visibility = View.INVISIBLE
 
-        customer_list.layoutManager = LinearLayoutManager(this)
-        customer_list.adapter = CustomerAdapter(customers, this)
+        item_list.layoutManager = LinearLayoutManager(this)
+        item_list.adapter = CustomerAdapter(customers, this)
 
     }
 
+    // Functionality of the "Jobs" pane.
     private fun onJobs() {
         binding.heading.setText(R.string.title_jobs)
 
-        customer_list.visibility = View.VISIBLE
+        item_list.visibility = View.VISIBLE
         job_calendar.visibility = View.INVISIBLE
 
-        customer_list.layoutManager = LinearLayoutManager(this)
-        customer_list.adapter = JobAdapter(jobs, this)
+        item_list.layoutManager = LinearLayoutManager(this)
+        item_list.adapter = JobAdapter(jobs, this)
     }
 
+    // Functionality of the "Calendar" pane.
     private fun onCalendar() {
         binding.heading.setText(R.string.title_calendar)
 
         job_calendar.visibility = View.VISIBLE
-        customer_list.visibility = View.INVISIBLE
+        item_list.visibility = View.INVISIBLE
     }
 
     private fun populateCustomers() {
@@ -150,26 +156,126 @@ class MainActivity : AppCompatActivity() {
         val date19: LocalDate = LocalDate.of(2020, 5, 27)
         val date20: LocalDate = LocalDate.of(2020, 5, 28)
 
-        val job1 = Job(customers[0], date1, "Pressure Wash", BigDecimal(89.95))
-        val job2 = Job(customers[1], date2, "Pressure Wash", BigDecimal(89.95))
-        val job3 = Job(customers[2], date3, "WiFi Antenna", BigDecimal(29.95))
-        val job4 = Job(customers[3], date4, "Pressure Wash", BigDecimal(89.95))
-        val job5 = Job(customers[4], date5, "WiFi Antenna", BigDecimal(29.95))
-        val job6 = Job(customers[5], date6, "WiFi Antenna", BigDecimal(29.95))
-        val job7 = Job(customers[6], date7, "Miscellaneous", BigDecimal(137.27))
-        val job8 = Job(customers[7], date8, "Pressure Wash", BigDecimal(89.95))
-        val job9 = Job(customers[8], date9, "Pressure Wash", BigDecimal(89.95))
-        val job10 = Job(customers[9], date10, "WiFi Antenna", BigDecimal(29.95))
-        val job11 = Job(customers[10], date11, "Pressure Wash", BigDecimal(89.95))
-        val job12 = Job(customers[11], date12, "WiFi Antenna", BigDecimal(29.95))
-        val job13 = Job(customers[12], date13, "WiFi Antenna", BigDecimal(29.95))
-        val job14 = Job(customers[13], date14, "WiFi Antenna", BigDecimal(29.95))
-        val job15 = Job(customers[14], date15, "WiFi Antenna", BigDecimal(29.95))
-        val job16 = Job(customers[15], date16, "Pressure Wash", BigDecimal(89.95))
-        val job17 = Job(customers[16], date17, "WiFi Antenna", BigDecimal(29.95))
-        val job18 = Job(customers[17], date18, "Pressure Wash", BigDecimal(89.95))
-        val job19 = Job(customers[18], date19, "Pressure Wash", BigDecimal(89.95))
-        val job20 = Job(customers[19], date20, "WiFi Antenna", BigDecimal(29.95))
+        val job1 = Job(
+            customers[0],
+            date1,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job2 = Job(
+            customers[1],
+            date2,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job3 = Job(
+            customers[2],
+            date3,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job4 = Job(
+            customers[3],
+            date4,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job5 = Job(
+            customers[4],
+            date5,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job6 = Job(
+            customers[5],
+            date6,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job7 = Job(
+            customers[6],
+            date7,
+            "Miscellaneous",
+            BigDecimal(137.27)
+        )
+        val job8 = Job(
+            customers[7],
+            date8,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job9 = Job(
+            customers[8],
+            date9,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job10 = Job(
+            customers[9],
+            date10,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job11 = Job(
+            customers[10],
+            date11,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job12 = Job(
+            customers[11],
+            date12,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job13 = Job(
+            customers[12],
+            date13,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job14 = Job(
+            customers[13],
+            date14,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job15 = Job(
+            customers[14],
+            date15,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job16 = Job(
+            customers[15],
+            date16,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job17 = Job(
+            customers[16],
+            date17,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
+        val job18 = Job(
+            customers[17],
+            date18,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job19 = Job(
+            customers[18],
+            date19,
+            "Pressure Wash",
+            BigDecimal(89.95)
+        )
+        val job20 = Job(
+            customers[19],
+            date20,
+            "WiFi Antenna",
+            BigDecimal(29.95)
+        )
 
         jobs.add(job1)
         jobs.add(job2)
